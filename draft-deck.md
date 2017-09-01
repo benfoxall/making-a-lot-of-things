@@ -100,61 +100,35 @@ audio-stereograph
 
 ---
 
-## The challenges
+What I've gained:
 
-1. Starting
-2. Doing
-3. Finishing
-
----
-
-…
+* satisfaction
+* knowledge
 
 ---
 
-# Starting something
+Key stuff:
+
+<!-- * lower barrier to creation -->
+* constraint
+* exploration
 
 ---
 
-Knowing what it is
+My freedom thus consists in my moving about within the narrow frame that I have assigned to myself for each one of my undertakings. I shall go even further: my freedom will be so much the greater and more meaningful the more narrowly I limit my field of action and the more I surround myself with obstacles. Whatever diminishes constraint diminishes strength. The more constraints one imposes, the more one frees oneself of the claims that shackle the spirit.
+
+> Igor Stravinsky
 
 ---
 
-## pro tips:
-
-* think small
-* think vague
+## What's the minimal space that we can be creative within?
 
 ---
 
-# Doing something
-
-<!-- ---
-
-## What we think we do:
-
-### [solving the problem]
+# REPLs
 
 ---
 
-## What we sometimes do:
-
-### [solving the solution] -->
-
----
-
-# [fit] Exploration
-### vs.
-# [fit] Following a plan
-
----
-
-# The smallest bit of exploratory code
-
----
-
-```html
-<input/> <div/>
-```
+# JS => Result
 
 ---
