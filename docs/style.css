@@ -37,3 +37,16 @@ hr {
 .reveal p {
   text-align: left;
 }
+
+.reveal blockquote {
+  text-align: left;
+  margin-left:0;
+  background: none;
+  font-size: 1.2em;
+}
+
+.reveal cite {
+  text-align: left;
+  margin: auto;
+  display: block;
+}
