@@ -33,6 +33,9 @@ hr {
 .reveal code {
   font-family: 'Roboto Mono', monospace;
 }
+.reveal pre.big {
+  font-size: 1em;
+}
 
 .reveal p {
   text-align: left;
@@ -49,4 +52,41 @@ hr {
   text-align: left;
   margin: auto;
   display: block;
+}
+
+#parsing {
+  text-align: left;
+}
+#parsing textarea{
+  font-size: 2em;
+  padding: .3em;
+}
+#parsing .output {
+  height: 5em;
+  margin-top: .5em;
+  font-family: 'Roboto Mono', monospace;
+  overflow-y: scroll;
+}
+
+#types {
+  text-align: left;
+}
+#types textarea{
+  font-size: 2em;
+  padding: .3em;
+  height: 3.5em;
+}
+#types .output {
+  height: 5em;
+  margin-top: .5em;
+  font-family: 'Roboto Mono', monospace;
+  overflow-y: scroll;
+  white-space: pre
+}
+
+
+.reveal iframe {
+  width: calc(1920px/2);
+  height: calc(1080px/2);
+  transform:  translateY(50%) scale(2)
 }

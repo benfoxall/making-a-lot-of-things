@@ -219,9 +219,7 @@ print(value)
 
 
 ```js
-const ten = () => {
-
-}
+const ten = () => '╱╲'[~~(Math.random()*2)]
 
 Array.from({length: 500}, ten).join('')
 ```

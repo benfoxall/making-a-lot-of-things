@@ -129,7 +129,283 @@
           </section>
         </section>
 
+        <section>
+          <section>
+            <h2>Today: changing constraints</h2>
+            <h1>1. Coding</h1>
+            <h1>2. Making</h1>
+          </section>
+        </section>
 
+        <section>
+          <section>
+            <h1>Coding</h1>
+          </section>
+          <section>
+            <img class="stretch" src="images/screen-complex-code.png" />
+          </section>
+
+          <section>
+            <img class="stretch" src="images/screen-complex-frameworks.png" />
+          </section>
+
+          <section>
+            <img class="stretch" src="images/sk-repls.png" />
+          </section>
+
+          <section>
+            <img class="stretch" src="images/sk-repl-svelte.png" />
+          </section>
+
+          <section>
+            <h1>cojs.co</h1>
+            <img class="stretch" src="images/screen-repl-cojs.png" />
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Evaluating JavaScript</h1>
+          </section>
+
+          <section>
+            <img class="stretch" src="images/sk-cell-outline.png" />
+          </section>
+
+          <section>
+            <h1>JavaScript ⊂ Text</h1>
+          </section>
+
+          <section>
+            <h3>How do we test if text is JavaScript?</h3>
+          </section>
+
+          <section>
+            <!-- <h1>Is our text JavaScript?</h1> -->
+            <h2>Text → Tokens → Abstract Syntax Tree</h2>
+          </section>
+
+
+          <script src="https://unpkg.com/esprima@~4.0/dist/esprima.js"></script>
+
+          <section id="parsing">
+            <textarea id="textarea"></textarea>
+            <div class="output" id="token_out"></div>
+            <div class="output" id="tree_out"></div>
+
+            <script type="text/javascript">
+              textarea.addEventListener('keyup', () => {
+                try {
+                  const v = esprima.tokenize(textarea.value)
+                  token_out.innerText = JSON.stringify(v)
+                } catch (e) {
+                  token_out.innerText = '[]'
+                }
+
+                tree_out.style.color = ''
+                try {
+                  const v = esprima.parse(textarea.value)
+                  tree_out.innerText = JSON.stringify(v)
+                } catch (e) {
+                  tree_out.style.color = 'red'
+                  tree_out.innerText = e.toString()
+                }
+              })
+            </script>
+          </section>
+
+
+          <section>
+            <pre><code class="javascript" data-trim>
+              if(!is_javascript(src)) return
+
+              const htm = `
+                &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+                &lt;script&gt;
+                  const output = ${src}
+
+                  /* todo: print output */
+                &lt;/script&gt;
+                &lt;/body&gt;&lt;/html&gt;
+              `
+
+              const blob = new Blob([htm], {type: 'text/html'})
+              const url = URL.createObjectURL(blob)
+              iframe.src = url
+
+            </code></pre>
+          </section>
+
+          <section>
+            <h1>It works!</h1>
+            <h3>…ish</h3>
+          </section>
+
+          <section>
+            <h1>only for simple expressions</h1>
+          </section>
+
+          <section>
+            <pre class="big"><code class="javascript" data-trim>
+            const output =
+                x = 10
+                y = 32
+                x + y
+            </code></pre>
+
+            <h2 class="fragment" style="margin-top:1em;">= 10</h2>
+          </section>
+
+          <section>
+            <h1>Modify our syntax tree</h1>
+          </section>
+
+          <section>
+            <pre><code class="javascript" data-trim>
+                x = 10
+                y = 32
+                x + y
+            </code></pre>
+
+            <pre data-trim><code data-trim>
+            Program
+              ExpressionStatement
+                AssignmentExpression
+                  Operator (=)
+                  Identifier (x)
+                  Literal (10)
+              ExpressionStatement
+                AssignmentExpression
+                  Operator (=)
+                  Identifier (y)
+                  Literal (32)
+              ExpressionStatement
+                BinaryExpression
+                  Operator (+)
+                  Identifier (x)
+                  Identifier (y)
+              </code></pre>
+          </section>
+
+          <section data-transition="none">
+            <img src="images/ast-rewrite-1.png" class="stretch" />
+          </section>
+          <section data-transition="none">
+            <img src="images/ast-rewrite-2.png" class="stretch" />
+          </section>
+          <section data-transition="none">
+            <img src="images/ast-rewrite-3.png" class="stretch" />
+          </section>
+
+          <script src="lib/recast.js"></script>
+          <script src="lib/types.js"></script>
+          <section id="types">
+            <textarea id="textarea_type">x = 1
+y = 1
+z = x + y</textarea>
+            <div class="output" id="type_out"></div>
+
+            <script type="text/javascript">
+              textarea_type.addEventListener('keyup', () => {
+                try {
+                  const b = types.builders
+
+                  const ast = recast.parse(textarea_type.value)
+                  
+                  types.visit(ast, {
+                    visitVariableDeclaration: function(path) {
+
+                      path.node.declarations.forEach((d, i) => {
+                        const wrap = b.callExpression(
+                            b.identifier("O_"),
+                            [d.init]
+                          )
+
+                        path.get("declarations", i)
+                          .get('init')
+                          .replace(wrap)
+
+                      })
+
+                      this.traverse(path)
+                    },
+
+
+                    visitExpressionStatement: function(path) {
+                      const wrap = b.callExpression(
+                          b.identifier("O_"),
+                          [path.node.expression]
+                        )
+                      path.get('expression').replace(wrap)
+                      this.traverse(path)
+                    },
+
+                    visitAssignmentExpression: function(path) {
+                      const wrap = b.callExpression(
+                          b.identifier("O_"),
+                          [path.node.right]
+                        )
+                      path.get('right').replace(wrap)
+                      this.traverse(path)
+                    }
+
+                  })
+
+                  const out = recast.print(ast).code
+
+                  type_out.innerText = out
+                } catch (e) {
+                  console.log(e)
+                  type_out.innerText = e.message
+                }
+              })
+            </script>
+          </section>
+
+
+          <section>
+            <h1>ast-tools &amp; recast</h1>
+          </section>
+
+          <section>
+            <pre class="big"><code class="javascript" data-trim>
+                x = 10
+                y = 32
+                x + y
+            </code></pre>
+            <h1>↓</h1>
+
+            <pre class="big"><code class="javascript" data-trim>
+                O(x = O(10))
+                O(y = O(32))
+                O(O(x) + O(y))
+            </code></pre>
+          </section>
+
+          <section>
+            <iframe src="https://cojs.co"></iframe>
+            <script type="text/javascript-cojs" data-ref="0" data-trim>
+              x = 10
+              y = 32
+              x + y
+            </script>
+          </section>
+
+        </section>
+
+
+
+
+
+
+        <!--
+          There's a reason why so many seminal works of art start off on the back of a bar napkin…
+
+          …It's because they were in a bar.
+
+          James Victore
+          https://gumroad.com/l/xrpoM
+        -->
       </div>
     </div>
 
