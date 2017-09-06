@@ -115,7 +115,7 @@ Key stuff:
 
 ---
 
-![fit](images/Igor_Stravinsky_LOC_32392u.jpg)
+![fit](docs/images/Igor_Stravinsky_LOC_32392u.jpg)
 
 ---
 
@@ -248,7 +248,7 @@ JavaScript is a subset of text
 
 ---
 
-![](images/ast-rewrite.png)
+![](docs/images/ast-rewrite.png)
 
 ---
 
@@ -272,6 +272,6 @@ code -> rewrite -> inject
 
 ---
 
-![](images/multi-cell.png)
+![](docs/images/multi-cell.png)
 
 ---
