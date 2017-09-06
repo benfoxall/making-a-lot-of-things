@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="1080px" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #000000;">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>ast-rewrite</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="ast-rewrite" stroke-width="10">
+            <circle id="Oval-6" stroke="#34C6DF" cx="550.5" cy="430.5" r="57.5"></circle>
+            <circle id="Oval-6" stroke="#34C6DF" cx="665.5" cy="638.5" r="57.5"></circle>
+            <circle id="Oval-6" stroke="#34C6DF" cx="493.5" cy="642.5" r="57.5"></circle>
+            <circle id="Oval-6" stroke="#34C6DF" cx="434.5" cy="238.5" r="57.5"></circle>
+            <circle id="Oval-6" stroke="#34C6DF" cx="319.5" cy="430.5" r="57.5"></circle>
+            <path d="M402.5,286.5 L352.5,382.5" id="Line" stroke="#34C6DF"></path>
+            <path d="M550.5,488.5 L500.5,584.5" id="Line" stroke="#34C6DF"></path>
+            <path d="M459.5,293.5 L520,381" id="Line" stroke="#34C6DF"></path>
+            <path d="M580.5,491.5 L641,579" id="Line" stroke="#34C6DF"></path>
+            <circle id="Oval-6" stroke="#34C6DF" cx="1408.5" cy="420.5" r="57.5"></circle>
+            <circle id="Oval-6" stroke="#34C6DF" cx="1523.5" cy="628.5" r="57.5"></circle>
+            <circle id="Oval-6" stroke="#34C6DF" cx="1292.5" cy="228.5" r="57.5"></circle>
+            <circle id="Oval-6" stroke="#34C6DF" cx="1177.5" cy="420.5" r="57.5"></circle>
+            <path d="M1260.5,276.5 L1210.5,372.5" id="Line" stroke="#34C6DF"></path>
+            <path d="M1408.5,478.5 L1358.5,574.5" id="Line" stroke="#34C6DF"></path>
+            <path d="M1317.5,283.5 L1378,371" id="Line" stroke="#34C6DF"></path>
+            <path d="M1438.5,481.5 L1499,569" id="Line" stroke="#34C6DF"></path>
+            <circle id="Oval-6" stroke="#D334DF" cx="1452.5" cy="837.5" r="57.5"></circle>
+            <circle id="Oval-6" stroke="#D334DF" cx="1280.5" cy="841.5" r="57.5"></circle>
+            <path d="M1337.5,687.5 L1287.5,783.5" id="Line" stroke="#D334DF"></path>
+            <path d="M1367.5,690.5 L1428,778" id="Line" stroke="#D334DF"></path>
+            <circle id="Oval-6" stroke="#D334DF" cx="1351.5" cy="632.5" r="57.5"></circle>
+        </g>
+    </g>
+</svg>
