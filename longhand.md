@@ -183,6 +183,7 @@ This is a basic timeline of a project/hack/side - what we've talked about is tha
 	 * identify the barriers - deploy, build, share
 	 * ? isolated repetition, a pattern will emerge
 	 * do things for the right reason
+	 * small things can lead onto bigger things
 	 * be proud of what you do, because you're awesome
 }
 
@@ -216,3 +217,124 @@ https://cojs.co/?6y9b9
 
 TODO - mention cojs earlier on, "and this is how I do this in cojs"
 
+* little things lead onto big things.  Split scanner => 
+
+
+
+
+
+
+
+
+
+>> FOR ABOVE
+
+Forking and collaboration - cojs has an interesting structure that lets it sit between the two.
+
+[    ]  ->  [    ] 
+[    ]      [ XX ] 
+[    ]      [    ] 
+[    ]  ->  [    ] 
+
+This coupled with the fact that they're running independent state trees allows something interesting.
+
+
+
+
+
+Building things with constraint
+
+
+Ok.  so now I'm going to talk about how we can actually ship things.
+
+Let's look at the flow of a microhack.  You think about the idea, think about how you might solve it, you find some time to do it, you get started, then you work on it a bit, when it's ready you publish it and show it to the world.
+
+First of all, let's talk about getting an idea in the first place.
+
+Chill out, and talk to people about what interests you.
+
+[Be inspired by yourself.]
+
+[webgl hacks]
+
+This is a series of micro hacks that I was doing to get to grips with WebGL.  Two things about this - my first hack was a single square.  Putting this alongside every other hack that I've seen; it's really not that impressive, though it's **still** worth publishing.
+
+The other thing that's interesting about these hacks, is that almost every one - I had no idea what I was going to be doing next.
+
+
+# Next we've got the starting phase
+
+So you've got your idea, and you just need to find some time to do it.
+
+This can be hard, because it's impossible to schedule time in to make it into reality.
+
+Interestingly, the problem isn't so much finding a time, but finding a large enough gap.
+
+[
+options:
+* find a big enough gap
+* make something smaller
+]
+
+[think small]
+
+[oxford tube]
+
+This is the Oxford Tube, it's a bus that runs between Oxford and London, it takes about 1.5 hours.  It makes a surprisingly good hackspace.
+
+# now we've got the coding phase
+
+[Find your setup]
+
+I've already talked about how we can change the way that we code to be more explorative and finding our way to a solution.  I really wouldn't expect you to use something like cojs, but it's useful to iron out bottlenecks that take you out of the context of building something.
+
+[solve the problem, not your solution]
+
+I find this really interesting. Toward the end of a project, we often spend more time actually fixing stuff we've already built rather than actually working toward the solution that we're making.  There's not so much of a tip for this, but it's something good to be aware of. If you feel something getting in the way, then maybe you should try and avoid it the next time.
+
+[be explorative]
+
+So, quite often we start on something and while we're writing it we diverge from the path that we originally saw it taking.  This often holds us back from what we could be doing, because we're worried that it won't meet the expectation that we've set ourselves.
+
+
+# Finishing
+
+1. Define what completion means
+2. Do that as soon as you possibly can
+
+Finish first, tinker later
+
+A danger as you get to the part just before finishing a project is tinkering. There's a pretty easy way of 
+
+There's a point where you 
+
+I think many of us 
+
+[
+Have a vague, but testable endgoal.
+And realise when you've gone past it
+]
+[
+	Avoid over-finishing
+]
+Set boundaries on what you
+
+Sometimes it's hard to know when something is done, unless you've got some kind of test case.  As I said before, it's good to make this goal flexible, but the main thing is that you've got something that's it could be "I've uploaded a thing", or "I've shown a thing to someone".
+
+
+
+You've made something!
+
+
+[Make a lot of the things you've made.]
+
+My last piece of advice.  Anything that you make & publish, is something you should be proud of.  It's a truly great thing to be able to take a concept and make it into something that's able to be seen by others.  You should definitely celebrate it.
+
+Because a few months ago, I spent 6 hours drawing this square.
+And I am super proud of it
+
+Thanks.
+
+Ben Foxall
+@benjaminbenben
+(tweet me with your #microhacks; I'd love to see them)
