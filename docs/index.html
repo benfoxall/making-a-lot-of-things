@@ -14,6 +14,40 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <script>
+      // cojs message handling
+      window.addEventListener('message', (e) => {
+        const data = e.data
+
+        if(!data.action)
+        return console.error("no action type from embed message")
+
+        document.querySelectorAll('iframe').forEach(frame => {
+          if(frame.contentWindow === e.source) {
+
+            if(e.data.action === 'ready') {
+              frame.contentWindow.postMessage({
+                action: 'config',
+                value: {
+                  bodyStyle: {
+                    backgroundColor: '#222'
+                  },
+                  config: frame.dataset.config
+                }
+              }, '*')
+            }
+
+            if(e.data.action === 'key') {
+              if(e.data.value == 'PageUp') {
+                Reveal.prev()
+              } else {
+                Reveal.next()
+              }
+            }
+          }
+        })
+      })
+    </script>
 
     <!-- <pre><code class="javascript" data-trim>
         console.log("some code")
@@ -131,41 +165,77 @@
 
         <section>
           <section>
-            <h2>Today: changing constraints</h2>
-            <h1>1. Coding</h1>
-            <h1>2. Making</h1>
+            <h2>Today: applying constraint &amp; exploration</h2>
+            <h1>1. The code we write</h1>
+            <h1>2. The things we build</h1>
           </section>
         </section>
 
         <section>
           <section>
-            <h1>Coding</h1>
+            <h1>The code we write</h1>
           </section>
           <section>
             <img class="stretch" src="images/screen-complex-code.png" />
           </section>
-
           <section>
             <img class="stretch" src="images/screen-complex-frameworks.png" />
           </section>
-
           <section>
             <img class="stretch" src="images/sk-repls.png" />
           </section>
-
           <section>
             <img class="stretch" src="images/sk-repl-svelte.png" />
-          </section>
-
-          <section>
-            <h1>cojs.co</h1>
-            <img class="stretch" src="images/screen-repl-cojs.png" />
           </section>
         </section>
 
         <section>
           <section>
-            <h1>Evaluating JavaScript</h1>
+            <h1>cojs.co</h1>
+            <div class="stretch" style="text-align:left">
+              <img src="images/screen-cojs-example.png" />
+            </div>
+            <p>An experimental code exploration tool</p>
+          </section>
+
+          <section>
+            <h3>Partially inspired by d3.express</h3>
+            <p><img src="images/d3.png" class="stretchx" height="400" /></p>
+            <h3>Integrated discovery environment</h3>
+            <!-- way deeper and awesomer -->
+          </section>
+
+          <section>
+            <img src="images/screen-better-way-to-code.png" />
+          </section>
+          <section>
+            <h3>modularising:</h3>
+            <h1>
+              Content vs Functionality
+            </h1>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>A unit of JavaScript</h1>
+          </section>
+
+          <section class="cojs-embed">
+            <iframe
+              src="https://cojs.co"
+              sandbox="allow-same-origin allow-scripts"
+              data-config="no-add"
+            ></iframe>
+            <script type="cojs/javascript" data-ref="0" data-trim>
+              x = 10
+              y = 32
+              x + y
+            </script>
+          </section>
+
+          <section>
+            <h1>A technical overview</h1>
+            <!-- 1, because it's interesting, 2, because it might be applicable -->
           </section>
 
           <section>
@@ -173,18 +243,14 @@
           </section>
 
           <section>
-            <h1>JavaScript ⊂ Text</h1>
+            <h3>Challenge 1.</h3>
+            <h1>Are we talking JavaScript?</h1>
           </section>
 
           <section>
-            <h3>How do we test if text is JavaScript?</h3>
-          </section>
-
-          <section>
-            <!-- <h1>Is our text JavaScript?</h1> -->
+            <h1>Will it parse?</h1>
             <h2>Text → Tokens → Abstract Syntax Tree</h2>
           </section>
-
 
           <script src="https://unpkg.com/esprima@~4.0/dist/esprima.js"></script>
 
@@ -214,59 +280,24 @@
             </script>
           </section>
 
-
           <section>
-            <pre><code class="javascript" data-trim>
-              if(!is_javascript(src)) return
-
-              const htm = `
-                &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
-                &lt;script&gt;
-                  const output = ${src}
-
-                  /* todo: print output */
-                &lt;/script&gt;
-                &lt;/body&gt;&lt;/html&gt;
-              `
-
-              const blob = new Blob([htm], {type: 'text/html'})
-              const url = URL.createObjectURL(blob)
-              iframe.src = url
-
-            </code></pre>
-          </section>
-
-          <section>
-            <h1>It works!</h1>
-            <h3>…ish</h3>
-          </section>
-
-          <section>
-            <h1>only for simple expressions</h1>
+            <h3>Challenge 2.</h3>
+            <h1>Capturing output</h1>
           </section>
 
           <section>
             <pre class="big"><code class="javascript" data-trim>
-            const output =
                 x = 10
                 y = 32
                 x + y
             </code></pre>
-
-            <h2 class="fragment" style="margin-top:1em;">= 10</h2>
           </section>
 
-          <section>
+          <!-- <section>
             <h1>Modify our syntax tree</h1>
-          </section>
+          </section> -->
 
           <section>
-            <pre><code class="javascript" data-trim>
-                x = 10
-                y = 32
-                x + y
-            </code></pre>
-
             <pre data-trim><code data-trim>
             Program
               ExpressionStatement
@@ -340,14 +371,14 @@ z = x + y</textarea>
                       this.traverse(path)
                     },
 
-                    visitAssignmentExpression: function(path) {
-                      const wrap = b.callExpression(
-                          b.identifier("O_"),
-                          [path.node.right]
-                        )
-                      path.get('right').replace(wrap)
-                      this.traverse(path)
-                    }
+                    // visitAssignmentExpression: function(path) {
+                    //   const wrap = b.callExpression(
+                    //       b.identifier("O_"),
+                    //       [path.node.right]
+                    //     )
+                    //   path.get('right').replace(wrap)
+                    //   this.traverse(path)
+                    // }
 
                   })
 
@@ -362,93 +393,277 @@ z = x + y</textarea>
             </script>
           </section>
 
-
           <section>
-            <h1>ast-tools &amp; recast</h1>
-          </section>
+            <pre><code class="javascript" data-trim>
+              const htm = `
+                &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+                &lt;script&gt;
+                  let memo; const O = V => memo = V;
 
-          <section>
-            <pre class="big"><code class="javascript" data-trim>
-                x = 10
-                y = 32
-                x + y
+                  ${src}
+
+                  /* todo: print memo */
+                &lt;/script&gt;
+                &lt;/body&gt;&lt;/html&gt;`
+
+              const blob = new Blob([htm], {type: 'text/html'})
+              const url = URL.createObjectURL(blob)
+              iframe.src = url
+
             </code></pre>
-            <h1>↓</h1>
-
-            <pre class="big"><code class="javascript" data-trim>
-                O(x = O(10))
-                O(y = O(32))
-                O(O(x) + O(y))
-            </code></pre>
-          </section>
-
-
-          <script>
-            // cojs message handling
-              window.addEventListener('message', (e) => {
-                const data = e.data
-
-                if(!data.action) return console.error("no action type from embed message")
-
-                document.querySelectorAll('iframe').forEach(frame => {
-                  if(frame.contentWindow === e.source) {
-
-                    if(e.data.action === 'ready') {
-                      frame.contentWindow.postMessage({
-                        action: 'config',
-                        value: {
-                          bodyStyle: {
-                            backgroundColor: '#333'
-                          },
-                          config: frame.dataset.config
-                        }
-                      }, '*')
-                    }
-
-                    if(e.data.action === 'key') {
-                      if(e.data.value == 'PageUp') {
-                        Reveal.prev()
-                      } else {
-                        Reveal.next()
-                      }
-                    }
-                  }
-                })
-              })
-          </script>
-
-
-          <section class="cojs-embed">
-            <iframe
-              src="http://localhost:8080/"
-              sandbox="allow-same-origin allow-scripts"
-              data-config="no-add"
-            ></iframe>
-            <script type="cojs/javascript" data-ref="0" data-trim>
-              x = 10
-              y = 32
-              x + y
-            </script>
           </section>
 
           <section>
+            <h1>And we're done</h1>
+          </section>
+
+
+          <section>
+            <h3>Input → Process → Evaluate → Show</h3>
+            <h1>Works for any language</h1>
+            <h3>[css, glsl, sql, lua, english]</h3>
+            <h1>Provides exploration</h1>
+          </section>
+
+          <!-- <section>
             <h1>The best way to let someone understand something, it to let them explore it</h1>
-          </section>
+          </section> -->
         </section>
 
 
 
+        <section>
+          <section>
+            <h1>Lots of units of JavaScript</h1>
+          </section>
+
+          <section class="cojs-embed">
+            <iframe
+              src="https://cojs.co"
+              sandbox="allow-same-origin allow-scripts"
+              data-config=""
+            ></iframe>
+
+            <!-- Keep this boring, stepping forward as if it's a worksheet -->
+            <script type="cojs/javascript" data-ref="0" data-trim>
+              const name = 'World'
+            </script>
+            <script type="cojs/javascript" data-ref="1" data-trim>
+              `Hello, ${name}`
+            </script>
+          </section>
+
+          <!-- <section>
+            <h1>Passing state between cells</h1>
+          </section>
+
+          <section data-transition="fade">
+            <img src="images/sk-multi.png" class="stretch"/>
+          </section>
+
+          <section data-transition="fade">
+            <img src="images/sk-multi-vars.png" class="stretch"/>
+          </section>
+
+          <section>
+            <h3>Pass state between cells</h3>
+            <pre><code class="javascript" data-trim>
+              Promise.resolve({})
+                .then(cell_1.evaluate)
+                .then(cell_2.evaluate)
+                .then(cell_3.evaluate)
+            </code></pre>
+          </section> -->
 
 
 
-        <!--
-          There's a reason why so many seminal works of art start off on the back of a bar napkin…
 
-          …It's because they were in a bar.
+          <section data-transition="fade">
+            <img src="images/sk-multi.png" class="stretch"/>
+          </section>
 
-          James Victore
-          https://gumroad.com/l/xrpoM
-        -->
+          <section data-transition="fade">
+            <img src="images/sk-multi-vars.png" class="stretch"/>
+          </section>
+
+          <section data-transition="fade">
+            <img src="images/sk-multi-1.png" class="stretch"/>
+          </section>
+
+          <section data-transition="fade">
+            <img src="images/sk-multi-2.png" class="stretch"/>
+          </section>
+
+          <section data-transition="fade">
+            <img src="images/sk-multi-3.png" class="stretch"/>
+          </section>
+
+          <!-- <section>
+            <h1>Jupyter</h1>
+            <h1>Matlab</h1>
+            <h1>Maple</h1>
+          </section> -->
+
+          <section>
+            <h1>Live, reactive, explorative code</h1>
+          </section>
+
+          <section>
+            <h1>[coding doesn't have to look like coding]</h1>
+            <h4>sonicpi, msp</h4>
+          </section>
+
+
+          <section>
+
+          </section>
+
+          <!-- conclusion: we don't have to be constrained to text -->
+
+        </section>
+
+        <section>
+          <section>
+            <h1>Lots of people</h1>
+          </section>
+
+          <section>
+            <h1>* Live Collaboration</h1>
+            <h1>* Forking</h1>
+          </section>
+
+          <section>
+            <h1>[todo]</h1>
+          </section>
+
+
+          <!--
+            Conclusion, there's a lot of ways to code, and there will
+            be more in the future - let's not get complacent about
+            how we do it.
+          -->
+
+        </section>
+
+        <section>
+          <h2>/ The things we code</h2>
+        </section>
+
+        <section>
+          <h1>2. The things we build</h1>
+        </section>
+
+
+        <section>
+          <img src="images/sk-timeline.png" class="stretch"/>
+        </section>
+
+        <section>
+          <section>
+            <h1>[idea]</h1>
+            <img src="images/sk-timeline.png" class="stretch"/>
+          </section>
+          <section>
+            <h2>Chill out, and talk to people about what interests you</h2>
+          </section>
+          <section>
+            <blockquote>There's a reason why so many seminal works of art start off on the back of a bar napkin…</blockquote>
+            <blockquote class="fragment">…it's because they were in a bar.</blockquote>
+            <cite>James Victore</cite>
+            <!-- https://gumroad.com/l/xrpoM -->
+          </section>
+          <section>
+            <h1>Be inspired by yourself</h1>
+          </section>
+          <section>
+            <a href="https://benjaminbenben.com/webgl-hacks/" target="_blank" class="stretch">
+              <img src="images/screen-webgl-hacks.png" />
+            </a>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h1>[planning]</h1>
+            <img src="images/sk-timeline.png" class="stretch"/>
+          </section>
+          <section>
+            <h2>Explorative coding</h2>
+          </section>
+          <section>
+            <h2>Minimal Viable Plan</h2>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h1>[starting]</h1>
+            <img src="images/sk-timeline.png" class="stretch"/>
+          </section>
+          <section>
+            <h2>Scheduling big things is hard</h2>
+          </section>
+          <section>
+            <h2>Plan to build the smallest thing you can</h2>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h1>[coding]</h1>
+            <img src="images/sk-timeline.png" class="stretch"/>
+          </section>
+          <section>
+            <h2>Be explorative</h2>
+          </section>
+          <section>
+            <h2>Plan to build the smallest thing you can</h2>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h1>[finish]</h1>
+            <img src="images/sk-timeline.png" class="stretch"/>
+          </section>
+          <section>
+            <h2>Have a place to put stuff</h2>
+          </section>
+          <section>
+            <h2>Finish now, tinker later</h2>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h1>[done!]</h1>
+            <img src="images/sk-timeline.png" class="stretch"/>
+          </section>
+        </section>
+
+        <section>
+        </section>
+
+        <section>
+          <h1>Make a lot of the things you've made</h1>
+        </section>
+
+        <section data-background-color="#fff" data-transition-speed="slow">
+          <img src="images/screen-webgl-hacks-1.png" class="stretch"/>
+        </section>
+
+        <section>
+          <h1>Thanks</h1>
+          <h2>@benjaminbenben</h2>
+          <p>(send me your #microhacks – I'd love to see them)</p>
+        </section>
+
+
       </div>
     </div>
 
