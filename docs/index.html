@@ -65,7 +65,7 @@
           <section>
             <h2>Everyone</h2>
           </section>
-          <section>
+          <section data-background="images/codegram-crew.jpg">
             <h2>Codegram</h2>
           </section>
         </section>
@@ -76,18 +76,25 @@
           </section>
           <section>
             <h2>You might know me from …</h2>
-            <h2>2014 - FutureJS</h2>
-            <h2>2015 - Full Stack Fest</h2>
-            <h2>2016 - Full Stack Fest (microtalk)</h2>
+            <h2 class="fragment">2014 - FutureJS</h2>
+            <h2 class="fragment">2015 - Full Stack Fest</h2>
+            <h2 class="fragment">2016 - Full Stack Fest (microtalk)</h2>
+            <h2 class="fragment">2017 - Full Stack Fest</h2>
+            <h2 class="fragment">2018 - Full Stack Fest (attending)</h2>
           </section>
         </section>
         <section>
           <section>
-            <h1>Demos</h1>
+            <h1>Live demos</h1>
             <p>[phones]</p>
           </section>
           <section>
-            <h1>[light hacks]</h1>
+            <h2>This is not a demo talk</h2>
+          </section>
+          <section>
+            <h2>if it was…</h2>
+          </section>
+          <section data-background-video="images/light-hacks.mp4">
           </section>
           <section>
             <h2>This is not a demo talk</h2>
@@ -95,69 +102,35 @@
         </section>
 
         <section>
+          <h3>Today:</h3>
+          <h1>1. Explorative coding</h1>
+          <h1>2. Microhacks</h1>
+        </section>
+
+        <section>
           <section>
-            <h1>Making a lot of things</h1>
+            <h1>Explorative coding</h1>
           </section>
         </section>
 
         <section>
           <section>
-            <h1>#microhacks</h1>
-          </section>
+            <!-- <h1>Exploration, constraints &amp; creativity</h1> -->
+            <!-- <h1>To be creative, we need constraint</h1> -->
+            <!-- <h1>Exploration within constraints</h1> -->
 
-          <!-- <section>
-            <h1>[the button]</h1>
-          </section> -->
-          <section>
-            <h1>[dither]</h1>
-          </section>
-          <section>
-            <h1>[cursory-hack]</h1>
-          </section>
-          <section>
-            <h1>[cubes]</h1>
-          </section>
-          <section>
-            <h1>[scan]</h1>
-          </section>
-          <section>
-            <h1>[cardboctober]</h1>
-          </section>
-          <section>
-            <h1>[webgl-hacks]</h1>
+            <!-- <h1>Exploration</h1>
+            <h1>Constraints</h1>
+            <h1>Creativity</h1> -->
+
+            <h1>Exploring is hard without constraints</h1>
+            <!-- <h1>Exploration ❤️ Constraints</h1> -->
           </section>
           <!-- <section>
-            <h1>[audio-stereograph]</h1>
+            <h1>Applying constraints to what we do</h1>
           </section> -->
-        </section>
-
-        <section>
-          <section>
-            <h1>Benefits</h1>
-          </section>
-          <section>
-            <h3>Satifying</h3>
-            <h3>Fun</h3>
-            <h3>Understanding libraries &amp; APIs</h3>
-            <h3>Exploring ideas</h3>
-            <h3>Small things can lead to bigger things</h3>
-          </section>
-          <section>
-            <h3>[ruby]</h3>
-            <h3>[publishing rooms]</h3>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h1>What features enhance creativity?</h1>
-          </section>
-          <section>
-            <h1>1. Exploration</h1>
-            <h1>2. Constraint</h1>
-          </section>
-          <section>
-            <h1>[igor]</h1>
+          <section data-background-image="images/Igor_Stravinsky_LOC_32392u.jpg"
+          data-background-size="contain">
           </section>
           <section>
             <blockquote>My freedom thus consists in my moving about within the narrow frame that I have assigned to myself for each one of my undertakings. I shall go even further: my freedom will be so much the greater and more meaningful the more narrowly I limit my field of action and the more I surround myself with obstacles. Whatever diminishes constraint diminishes strength. The more constraints one imposes, the more one frees oneself of the claims that shackle the spirit.</blockquote>
@@ -169,17 +142,17 @@
           </section>
         </section>
 
-        <section>
+        <!-- <section>
           <section>
             <h2>Today: applying constraint &amp; exploration</h2>
             <h1>1. The code we write</h1>
             <h1>2. The things we build</h1>
           </section>
-        </section>
+        </section> -->
 
         <section>
           <section>
-            <h1>The code we write</h1>
+            <h1>Our code, isn't very constrained</h1>
           </section>
           <section>
             <img class="stretch" src="images/screen-complex-code.png" />
@@ -239,6 +212,22 @@
               data-config="no-add"
             ></iframe>
             <script type="cojs/javascript" data-ref="0" data-trim>
+              10 + 10
+            </script>
+            <script type="cojs/javascript" data-ref="1" data-trim>
+              // multi line (goto 10)
+            </script>
+            <script type="cojs/javascript" data-ref="2" data-trim>
+              // dom element
+            </script>
+
+            <script type="cojs/javascript" data-ref="3" data-trim>
+              x = 10
+              y = 32
+              x + y
+            </script>
+
+            <script type="cojs/javascript" data-ref="4" data-trim>
               x = 10
               y = 32
               x + y
@@ -557,7 +546,7 @@ z = x + y</textarea>
         </section>
 
         <section>
-          <h1>2. The things we build</h1>
+          <h1>2. Microhacks</h1>
         </section>
 
 
@@ -571,53 +560,96 @@ z = x + y</textarea>
 
 
         <section>
-          <img src="images/sk-timeline.png" class="stretch"/>
+          <!-- <section>
+            <h1>[the button]</h1>
+          </section> -->
+          <section>
+            <h1>[dither]</h1>
+          </section>
+          <section>
+            <h1>[cursory-hack]</h1>
+          </section>
+          <section>
+            <h1>[cubes]</h1>
+          </section>
+          <section>
+            <h1>[scan]</h1>
+          </section>
+          <section>
+            <h1>[cardboctober]</h1>
+          </section>
+          <section>
+            <h1>[webgl-hacks]</h1>
+          </section>
+          <!-- <section>
+            <h1>[audio-stereograph]</h1>
+          </section> -->
         </section>
 
         <section>
           <section>
-            <h1>[idea]</h1>
-            <img src="images/sk-timeline.png" class="stretch"/>
+            <h1>Benefits</h1>
           </section>
+          <section>
+            <h3>Fun</h3>
+            <h3>Understanding libraries &amp; APIs</h3>
+            <h3>Exploring ideas</h3>
+            <h3>Small things can lead to bigger things</h3>
+          </section>
+          <section>
+            <h1>
+              <a
+              target="_blank"
+              href="https://benjaminbenben.com/scan/">/scan</a>
+            </h1>
+          </section>
+          <section data-background="images/PR-2.jpg">
+          </section>
+        </section>
+
+
+
+        <section data-background="images/sk-timeline-0.png"></section>
+        <!-- <section data-background="images/sk-timeline-1.png">
+        </section>
+        <section data-background="images/sk-timeline-2.png">
+        </section>
+        <section data-background="images/sk-timeline-3.png">
+        </section>
+        <section data-background="images/sk-timeline-4.png">
+        </section>
+        <section data-background="images/sk-timeline-5.png">
+        </section>
+        <section data-background="images/sk-timeline-6.png">
+        </section> -->
+
+        <section>
+          <section data-background="images/sk-timeline-1.png"></section>
           <section>
             <h2>Chill out, and talk to people about what interests you</h2>
           </section>
           <section>
-            <blockquote>There's a reason why so many seminal works of art start off on the back of a bar napkin…</blockquote>
+            <blockquote class="fragment">There's a reason why so many seminal works of art start off on the back of a bar napkin…</blockquote>
             <blockquote class="fragment">…it's because they were in a bar.</blockquote>
             <cite>James Victore</cite>
             <!-- https://gumroad.com/l/xrpoM -->
           </section>
+        </section>
+
+
+        <section>
+          <!-- planning -->
+          <section data-background="images/sk-timeline-2.png"></section>
           <section>
-            <h1>Be inspired by yourself</h1>
-          </section>
-          <section>
-            <a href="https://benjaminbenben.com/webgl-hacks/" target="_blank" class="stretch">
-              <img src="images/screen-webgl-hacks.png" />
-            </a>
+            <!-- <h1>Don't overplan</h1> -->
+            <h1>Plan the goal, not the approach</h1>
           </section>
         </section>
 
 
         <section>
-          <section>
-            <h1>[planning]</h1>
-            <img src="images/sk-timeline.png" class="stretch"/>
-          </section>
-          <!-- <section>
-            <h2>Explorative coding</h2>
-          </section> -->
-          <section>
-            <h1>Screw planning</h1>
-          </section>
-        </section>
-
-
-        <section>
-          <section>
-            <h1>[starting]</h1>
-            <img src="images/sk-timeline.png" class="stretch"/>
-          </section>
+          <!-- starting -->
+          <section data-background="images/sk-timeline-3.png"></section>
           <section>
             <h2>Scheduling big things is hard</h2>
             <h2>Plan to build the smallest thing you can</h2>
@@ -626,31 +658,26 @@ z = x + y</textarea>
 
 
         <section>
+          <!-- coding -->
+          <section data-background="images/sk-timeline-4.png"></section>
           <section>
-            <h1>[coding]</h1>
-            <img src="images/sk-timeline.png" class="stretch"/>
+            <h2>Explore toward a goal</h2>
+            <h2 class="fragment">…if you miss, <span class="fragment">pretend that's where you were going</span></h2>
           </section>
-          <section>
-            <h2>Explore toward a solution</h2>
-          </section>
-          <section>
-            <h2>Move your target</h2>
-          </section>
-
         </section>
 
 
         <section>
+          <!-- finishing -->
+          <section data-background="images/sk-timeline-5.png"></section>
           <section>
-            <h1>[finish]</h1>
-            <img src="images/sk-timeline.png" class="stretch"/>
+            <h2>Define a way of being done</h2>
           </section>
           <section>
-            <h2>Have a place to put stuff</h2>
+            <h3>Clean up &amp; tinkering</h3>
           </section>
-          <section>
-            <h2>Finish now, tinker later</h2>
-          </section>
+          <section data-background="images/sk-timeline-tinker.png"></section>
+          <section data-background="images/sk-timeline-tinker-2.png"></section>
         </section>
 
 
@@ -662,6 +689,14 @@ z = x + y</textarea>
         </section>
 
         <section>
+          <section>
+            <h1>Be inspired by yourself</h1>
+          </section>
+          <section>
+            <a href="https://benjaminbenben.com/webgl-hacks/" target="_blank" class="stretch">
+              <img src="images/screen-webgl-hacks.png" />
+            </a>
+          </section>
         </section>
 
         <section>
