@@ -68,6 +68,9 @@
           <section data-background="images/codegram-crew.jpg">
             <h2>Codegram</h2>
           </section>
+          <!-- <section>
+            <img data-src="images/screen-fsf-source.png" class="stretch" />
+          </section> -->
         </section>
         <section>
           <section>
@@ -80,13 +83,13 @@
             <h2 class="fragment">2015 - Full Stack Fest</h2>
             <h2 class="fragment">2016 - Full Stack Fest (microtalk)</h2>
             <h2 class="fragment">2017 - Full Stack Fest</h2>
-            <h2 class="fragment">2018 - Full Stack Fest (attending)</h2>
+            <h2 class="fragment">2018 - Full Stack Fest <span class="fragment">(attending)</span></h2>
           </section>
         </section>
         <section>
           <section>
             <h1>Live demos</h1>
-            <p>[phones]</p>
+            <!-- <p>[phones]</p> -->
           </section>
           <section>
             <h2>This is not a demo talk</h2>
@@ -196,7 +199,7 @@
         </section>
 
         <section>
-          <h1>A technical look to cojs.co</h1>
+          <h1>A technical look at cojs.co</h1>
           <!-- 1, because it's interesting, 2, because it might be applicable -->
         </section>
 
@@ -215,23 +218,38 @@
               10 + 10
             </script>
             <script type="cojs/javascript" data-ref="1" data-trim>
-              // multi line (goto 10)
+              const ten = () => '╱╲'[~~(Math.random()*2)]
+
+              const pattern = Array.from(
+              {length:50}, ten
+              ).join('\u200b')
             </script>
             <script type="cojs/javascript" data-ref="2" data-trim>
-              // dom element
+            const div = document.createElement('div')
+            div.innerText = "Hello World"
+
+            Object.assign(div.style, {
+              background: '#8f2',
+              padding: '2em'
+            })
+
+            div
             </script>
 
             <script type="cojs/javascript" data-ref="3" data-trim>
-              x = 10
-              y = 32
-              x + y
+            const div = document.createElement('div')
+            div.innerText = "Hello World"
+            Object.assign(div.style, {
+              background: '#8f2',padding: '2em'
+            })
+            div
             </script>
 
-            <script type="cojs/javascript" data-ref="4" data-trim>
+            <!--<script type="cojs/javascript" data-ref="4" data-trim>
               x = 10
               y = 32
               x + y
-            </script>
+            </script> -->
           </section>
 
           <section>
@@ -416,9 +434,9 @@ z = x + y</textarea>
 
           <section>
             <h3>Input → Process → Evaluate → Show</h3>
-            <h1>Works for any language</h1>
-            <h3>[css, glsl, sql, lua, english]</h3>
-            <h1>Provides exploration</h1>
+            <h1 class="fragment">Works for any language</h1>
+            <!-- <h3>[css, glsl, sql, lua, english]</h3> -->
+            <h1 class="fragment">Provides exploration</h1>
           </section>
 
           <!-- <section>
@@ -501,21 +519,17 @@ z = x + y</textarea>
           </section> -->
 
           <section>
-            <h1>Live, reactive, explorative code</h1>
+            <!-- <h1>Live, reactive, explorative code</h1> -->
+            <!-- <h1>[todo: async demo]</h1> -->
+            <h4><a href="https://cojs.co/?ykjt3" target="_blank">demo</a></h4>
           </section>
 
           <section>
-            <h1>[coding doesn't have to look like coding]</h1>
-            <h4>sonicpi, msp</h4>
-          </section>
-
-
-          <section>
-
+            <h1>Coding doesn't have to be text files</h1>
+            <!-- <h4>sonicpi, msp</h4> -->
           </section>
 
           <!-- conclusion: we don't have to be constrained to text -->
-
         </section>
 
         <section>
@@ -528,8 +542,15 @@ z = x + y</textarea>
             <h1>* Forking</h1>
           </section>
 
+          <section data-background="images/sk-fork-1.png"></section>
+          <section data-background="images/sk-fork-2.png"></section>
+
           <section>
-            <h1>[todo]</h1>
+            <h6><a href="https://cojs.co/?9nnrb9" target="_blank">demo</a></h6>
+          </section>
+
+          <section>
+            <h2>There's going to be new ways of coding together</h2>
           </section>
 
 
@@ -542,7 +563,7 @@ z = x + y</textarea>
         </section>
 
         <section>
-          <h2>/ The way we code</h2>
+          <h2>/ Explorative coding</h2>
         </section>
 
         <section>
@@ -553,48 +574,26 @@ z = x + y</textarea>
         <section>
           <h1>Microhack</h1>
 
-          <h4>not like regular work</h4>
-          <h4>not like a side project</h4>
-          <h4>not like a full hack</h4>
+          <h4 class="fragment">not like regular work</h4>
+          <!-- <h4 class="fragment">not like a side project</h4> -->
+          <h4 class="fragment">not like a full hack</h4>
         </section>
 
-
-        <section>
-          <!-- <section>
-            <h1>[the button]</h1>
-          </section> -->
-          <section>
-            <h1>[dither]</h1>
-          </section>
-          <section>
-            <h1>[cursory-hack]</h1>
-          </section>
-          <section>
-            <h1>[cubes]</h1>
-          </section>
-          <section>
-            <h1>[scan]</h1>
-          </section>
-          <section>
-            <h1>[cardboctober]</h1>
-          </section>
-          <section>
-            <h1>[webgl-hacks]</h1>
-          </section>
-          <!-- <section>
-            <h1>[audio-stereograph]</h1>
-          </section> -->
+        <section data-background="images/sk-microhacks.png">
         </section>
+        <section data-background="images/sk-multi-microhacks.png">
+        </section>
+
 
         <section>
           <section>
             <h1>Benefits</h1>
-          </section>
-          <section>
-            <h3>Fun</h3>
-            <h3>Understanding libraries &amp; APIs</h3>
-            <h3>Exploring ideas</h3>
-            <h3>Small things can lead to bigger things</h3>
+          <!-- </section>
+          <section> -->
+            <h3 class="fragment">Fun</h3>
+            <h3 class="fragment">Understanding libraries &amp; APIs</h3>
+            <h3 class="fragment">Exploring ideas</h3>
+            <h3 class="fragment">Small things can lead to bigger things</h3>
           </section>
           <section>
             <h1>
@@ -605,8 +604,19 @@ z = x + y</textarea>
           </section>
           <section data-background="images/PR-2.jpg">
           </section>
+          <section data-background="images/PR-5.jpg">
+          </section>
+          <section data-background="images/PR-7.jpg">
+          </section>
+          <section data-background="images/PR-9.jpg">
+          </section>
+
+
         </section>
 
+        <section>
+          <h1>Making a microhack</h1>
+        </section>
 
 
         <section data-background="images/sk-timeline-0.png"></section>
@@ -629,7 +639,7 @@ z = x + y</textarea>
             <h2>Chill out, and talk to people about what interests you</h2>
           </section>
           <section>
-            <blockquote class="fragment">There's a reason why so many seminal works of art start off on the back of a bar napkin…</blockquote>
+            <blockquote class="fragment">There's a reason why so many seminal works of art start off on the back of a beer napkin…</blockquote>
             <blockquote class="fragment">…it's because they were in a bar.</blockquote>
             <cite>James Victore</cite>
             <!-- https://gumroad.com/l/xrpoM -->
@@ -674,18 +684,19 @@ z = x + y</textarea>
             <h2>Define a way of being done</h2>
           </section>
           <section>
-            <h3>Clean up &amp; tinkering</h3>
+            <h3>Tinkering</h3>
           </section>
           <section data-background="images/sk-timeline-tinker.png"></section>
           <section data-background="images/sk-timeline-tinker-2.png"></section>
         </section>
 
+        <section>
+          <section data-background="images/sk-timeline-6.png"></section>
+        </section>
 
         <section>
-          <section>
-            <h1>[done!]</h1>
-            <img src="images/sk-timeline.png" class="stretch"/>
-          </section>
+          <h1>Next step</h1>
+          <h2 class="fragment">Do it all again</h2>
         </section>
 
         <section>
@@ -693,14 +704,14 @@ z = x + y</textarea>
             <h1>Be inspired by yourself</h1>
           </section>
           <section>
-            <a href="https://benjaminbenben.com/webgl-hacks/" target="_blank" class="stretch">
-              <img src="images/screen-webgl-hacks.png" />
-            </a>
+            <!-- <a href="https://benjaminbenben.com/webgl-hacks/" target="_blank" class="stretch"> -->
+            <img data-src="images/screen-webgl-hacks.png" class="stretch"/>
+            <!-- </a> -->
           </section>
         </section>
 
         <section>
-          <h1>Make a lot of the things you've made</h1>
+          <h1>Be proud of the things you make</h1>
         </section>
 
         <section data-background-color="#fff" data-transition-speed="slow">
